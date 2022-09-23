@@ -1,6 +1,6 @@
 <!-- resources/views/produto.index.blade.php -->
  
-@extends('layouts.app')
+@extends('adminlte::page')
  
 @section('title', 'Page Title')
  
@@ -31,6 +31,7 @@
       <th>valor</th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
     
     @foreach ($produtos as $value)
@@ -40,6 +41,11 @@
       <td>{{ $value->valor      }}</td>
       <td><a href="{{ url('produto/'. $value->id) }}">Visualizar</a></td>
       <td><a href="{{ url('produto/'. $value->id . '/edit') }}">Editar</a></td>
+      <td>
+      {!! Form::open(['url' => 'produto/' . $value->id, 'method' =>'delete'])  !!}
+      {{Form::submit('Deletar')}}
+      {!! Form::close() !!}
+    </td>
      </tr>
     @endforeach
   

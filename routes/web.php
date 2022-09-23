@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 
 
+//CRUD
 
 // Listar todos os produtos
 
@@ -30,12 +31,16 @@ Route::get('/produto/create',[ProdutoController::class, 'create'])->name('produt
 
 //store
 Route::post('/produto/create',[ProdutoController::class, 'store'])->name('produto.store');
-
+// show 
+Route::get('/produto/{id}', [ProdutoController::class, 'show'])->name('produto.show');
 //edit
 Route::get('/produto/{id}/edit',[ProdutoController::class, 'edit'])->name('produto.edit');
 
+//update
 Route::put('/produto/{id}', [ProdutoController::class, 'update'])->name('produto.uptade');
 
+//delete
+Route::delete('/produto/{id}', [ProdutoController::class, 'destroy'])->name('produto.delete');
 
 
 
@@ -43,7 +48,7 @@ Route::put('/produto/{id}', [ProdutoController::class, 'update'])->name('produto
 
 
 
-
+/*
 // Exibe um produto
 
 Route::get('/produto/{id}', [ProdutoController::class, 'show'])->name('produto.show');
@@ -57,3 +62,7 @@ Route::get('/produtoupdate', [ProdutoController::class, 'update'])->name('produt
 
 // Exclui um produto[DELETE]
 route::get('/produtodestroy/{id}', [ProdutoController::class, 'destroy'])->name('produto.destroy');
+*/
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

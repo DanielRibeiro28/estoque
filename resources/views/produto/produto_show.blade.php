@@ -18,4 +18,5 @@
     <p><strong>quantidade: </strong>{{ $produto->quantidade }}</p>
     <p><strong>valor: </strong>R${{ $produto->valor }}</p>
     <p><strong>criação: </strong>{{ $produto->created_at }}</p>
+</p>
 @endsection
